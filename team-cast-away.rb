@@ -1,6 +1,9 @@
 
  def story
-
+    def display_ascii_art 
+        puts File.read("island.txt")
+      end
+      p display_ascii_art
  p 'Welcome to Cast Away'
 
  p 'What is you name?'
@@ -108,7 +111,7 @@ def fifth_choice action5,action4,action3,action2,action
     if action=='jump' && action2=='fight' && action3== "fists" && action4=='run' && action5=='cry'
         "You give yourself a good cry session. It felt amazing for sure. Letting out your feelings at a time like this where you don't know what is happening is great. It was such a nice cry that a predator came and seems like it wanted to join you. It didn't look like much of a big deal as it was just a naked mole rat. It looked at you with its adorable eyes like the cat in boots from Shrek. It waddled its way towards you ever so closely. Until it launched at you with such ferocity that it tore you limb from limb. Parading over your disfigured corpse without a care in the world."
         elsif action=='jump' && action2=='fight' && action3== "fists" && action4=='run' && action5=='grab'
-        "You feel the rock within your hand. Feeling the weight of it, you choose to chuck it into the forest. Hearing a high-pitched yell of pain, you investigate. Coming upon the corpse of a chupacabra. On closer inspection, it was actually a sloth spread upon the ground with a massive dent in its head. Feeling the hunger strike from all the running, you crouch upon the sloth and begin feeding on its remains like a savage. Smelling the retched fur of the sloth knocks you unconsious." 
+        "You feel the rock within your hand. Feeling the weight of it, you choose to chuck it into the forest. Hearing a high-pitched yell of pain, you investigate. Coming upon the corpse of a chupacabra. On closer inspection, it was actually a sloth spread upon the ground with a massive dent in its head. Feeling the hunger strike from all the running, you crouch upon the sloth and begin feeding on its remains like a savage. Smelling the retched fur of the sloth knocks you unconsious. Waking up to find yourself laying in bed. Wow, what a fever dream you had. Good ending, congratulations for reaching the end!" 
 
     end
 end
@@ -118,8 +121,12 @@ if verb1=='jump' && verb2=='fight' && verb3=='stick' && verb4=='fly' && verb5 ==
 elsif verb5 != 'cry' && verb5 != 'grab'
     return game_over
 end
-p "Waking up to find yourself laying in bed. Wow, what a fever dream you had. Good ending, congratulations for reaching the end!"
+def display_ascii_art1 
+    puts File.read("sleep.txt")
+  end
+  p display_ascii_art1
 end
+
 def game_over
     
     "Game over!"
