@@ -1,4 +1,6 @@
 
+ def story
+
  p 'Welcome to Cast Away'
 
  p 'What is you name?'
@@ -18,34 +20,41 @@ def first_choice action
        "You enthusiastically jumped into the ocean. Woops, there are sharks. " 
         elsif action =='scream' 
         "You scream hysterically into the sky, attracting the native predators of the island. Lucky you."
-            else
-                verb1 = gets.chomp.downcase
-                first_choice verb1
        
+    
     end
 end
 p first_choice verb1
-
+if verb1 != 'jump' && verb1 != 'scream'
+    return game_over
+end
 p "#{name} will you fight them head on or flee like a coward? (Fight, Flight)"
 
 verb2 = gets.chomp.downcase
 
 def second_choice action2,action
+
     if action=='jump' && action2=='fight'
         'You find a rather hefty weapon, THE STICK. '
     elsif action=='jump' && action2=='flight'
-       'You attempt to excape with your lives, however the one shark you saw became two then many all at once. They swarm you leaving not a bite left of your humanly remains.'
+       'You attempt to excape with your lives, however the one shark you saw became two then many all at once. They swarm you leaving not a bite left of your humanly remains.' 
     elsif action=='scream' && action2=='fight'
         'You find a rather hefty weapon, THE STICK.'
     elsif  action=='scream' && action2=='flight'
         'Face to face with such a dastardly creature, the NAKED MOLE RAT. It launched at you with such ferocity that it tore you limb from limb. Parading over your disfigured corpse without a care in the world.'
-    else
-        verb2 = gets.chomp.downcase
-        second_choice verb2,verb1
     end
 end
 
 p second_choice verb2,verb1
+
+if verb1=='jump' && verb2=='flight'
+    return game_over
+elsif verb1=='scream' && verb2=='flight'
+    return game_over
+elsif verb2!='fight' && verb2!='flight'
+    return game_over
+end
+
 p 'Do you use the valiant weapon or go mono-e-mono and use them fists? (Stick, Fists)'
  verb3 = gets.chomp.downcase
 
@@ -58,14 +67,19 @@ def third_choice action3,action2,action
         "It didn't look like much of a big deal as it was just a naked mole rat. It looked at you with its adorable eyes like the cat in boots from Shrek. It waddled its way towards you ever so closely. It takes your stick out of your hands and breaks it in two. Laughing, it launched at you with such ferocity that it tore you limb from limb. Parading over your disfigured corpse without a care in the world."
     elsif action=='scream' && action2=='fight' && action3== "fists"
         "You take your fists and get into a boxer stance that you saw one time on a Mike Tyson fight hoping that your knowledge of him versus Evander Holyfield. Praying to god that your fists can do magic just like then. It didn't look like much of a big deal as it was just a naked mole rat. It looked at you with its adorable eyes like the cat in boots from Shrek. It waddled its way towards you ever so closely. Until it launched at you with such ferocity that it tore you limb from limb. Parading over your disfigured corpse without a care in the world."
-        else
-            verb3 = gets.chomp.downcase
-            third_choice verb3,verb2,verb1
+        
     end
 end 
 
 p third_choice verb3,verb2,verb1
-
+if verb1=='jump' && verb2=='fight' && verb3=='stick'
+    return game_over
+elsif verb1=='scream' && verb2=='fight' && verb3=='stick'
+    return game_over
+elsif verb1=='scream' && verb2=='fight' && verb3=='fists'
+    return game_over
+elsif verb3 != 'fists' && verb3 != 'stick'
+end
 p "Welp,#{name}.What do you think we should do? (Fly,Run)"
 
 verb4 = gets.chomp.downcase
@@ -76,13 +90,16 @@ def fourth_choice action4,action3,action2,action
        
     elsif action=='jump' && action2=='fight' && action3== "fists" && action4=='run'
         '...Well. You so willingly wanting to run, ran straight into a medium sized boulder. Hurting your ankle and rolling for a good ten feet until finally stopping. You try to get up,feeling around for support off the ground and a rock in your hand so happens to be in your grasp.'
-    else
-        verb4 = gets.chomp.downcase
-        fourth_choice verb4,verb3,verb2,verb1
+   
     end
 end
 p fourth_choice verb4,verb3,verb2,verb1
 
+if verb1=='jump' && verb2=='fight' && verb3=='fists' && verb4=='fly'
+    return game_over
+elsif verb4 != 'fly' && verb4 != 'run'
+    return game_over
+end
 p "You landed flat on your face how embarressing. How do you feel about it? Do you want to cry out your feelings or see what's in your hand? (Cry, Grab)"
 
 verb5 = gets.chomp.downcase
@@ -92,11 +109,32 @@ def fifth_choice action5,action4,action3,action2,action
         "You give yourself a good cry session. It felt amazing for sure. Letting out your feelings at a time like this where you don't know what is happening is great. It was such a nice cry that a predator came and seems like it wanted to join you. It didn't look like much of a big deal as it was just a naked mole rat. It looked at you with its adorable eyes like the cat in boots from Shrek. It waddled its way towards you ever so closely. Until it launched at you with such ferocity that it tore you limb from limb. Parading over your disfigured corpse without a care in the world."
         elsif action=='jump' && action2=='fight' && action3== "fists" && action4=='run' && action5=='grab'
         "You feel the rock within your hand. Feeling the weight of it, you choose to chuck it into the forest. Hearing a high-pitched yell of pain, you investigate. Coming upon the corpse of a chupacabra. On closer inspection, it was actually a sloth spread upon the ground with a massive dent in its head. Feeling the hunger strike from all the running, you crouch upon the sloth and begin feeding on its remains like a savage. Smelling the retched fur of the sloth knocks you unconsious." 
-    else
-        verb5 = gets.chomp.downcase
-        fifth_choice verb5,verb4,verb3,verb2,verb1
+
     end
 end
 p fifth_choice verb5,verb4,verb3,verb2,verb1
+if verb1=='jump' && verb2=='fight' && verb3=='stick' && verb4=='fly' && verb5 =='cry'
+    return game_over
+elsif verb5 != 'cry' && verb5 != 'grab'
+    return game_over
+end
 p "Waking up to find yourself laying in bed. Wow, what a fever dream you had. Good ending, congratulations for reaching the end!"
-game_over = "Game Over!"
+end
+def game_over
+    
+    "Game over!"
+
+end
+
+    
+p story
+p 'Do you want to play again?(Yes,No)'
+answer = gets.chomp.downcase
+until answer != 'yes' do
+    
+        p story
+        p 'Do you want to play again?(Yes,No)'
+        answer = gets.chomp.downcase
+end
+
+p 'Thank you for playing!'
